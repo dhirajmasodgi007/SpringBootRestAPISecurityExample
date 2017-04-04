@@ -20,11 +20,11 @@ public class SpringRootRestApiSecurityExampleApplicationClient {
 	 
 	 /* GET */
 	    @SuppressWarnings("unchecked")
-	    private static void findWordCount(){
+	    private static void findWordCountWithoutAuthentication(){
 	        System.out.println("Begin findWordCount API");
 	          
 	        RestTemplate restTemplate = new RestTemplate();
-	        List<WordCount> wordCountList = restTemplate.getForObject(REST_SERVICE_URI+"/search/" + "[" + "Duis,Sed,Donec,Augue,Pellentesque,123" + "\\]", List.class);
+	        List<WordCount> wordCountList = restTemplate.getForObject(REST_SERVICE_URI+"/search/"  + "Duis,Sed,Donec,Augue,Pellentesque,123" , List.class);
 	          
 	        if(null != wordCountList && wordCountList.size() > 0)
 	        {
@@ -39,7 +39,7 @@ public class SpringRootRestApiSecurityExampleApplicationClient {
 	    
 	    /* GET */
 	    @SuppressWarnings("unchecked")
-	    private static void topWordCount(){
+	    private static void topWordCountWithoutAuthentication(){
 	        System.out.println("Begin topWordCount API");
 	          
 	        RestTemplate restTemplate = new RestTemplate();
@@ -74,8 +74,11 @@ public class SpringRootRestApiSecurityExampleApplicationClient {
 	    
 	public static void main(String[] args) {
 	
-		//	topWordCount();
-			findWordCount();
+			topWordCountWithoutAuthentication();
+			findWordCountWithoutAuthentication();
+			
+			
+			
 
 	}
 

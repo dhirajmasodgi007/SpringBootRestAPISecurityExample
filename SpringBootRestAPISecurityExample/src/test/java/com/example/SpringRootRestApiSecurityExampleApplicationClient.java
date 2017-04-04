@@ -14,7 +14,7 @@ import com.spring.security.restful.springboot.model.WordCount;
 public class SpringRootRestApiSecurityExampleApplicationClient {
 
 	
-	 public static final String REST_SERVICE_URI = "http://localhost:8080/SpringBootRestApiSecurity/counter-api";
+	 public static final String REST_SERVICE_URI = "http://localhost:8080/counter-api";
 	 
 	 
 	 
@@ -24,7 +24,7 @@ public class SpringRootRestApiSecurityExampleApplicationClient {
 	        System.out.println("Begin findWordCount API");
 	          
 	        RestTemplate restTemplate = new RestTemplate();
-	        List<WordCount> wordCountList = restTemplate.getForObject(REST_SERVICE_URI+"/search/[Duis,Sed,Donec,Augue,Pellentesque,123]", List.class);
+	        List<WordCount> wordCountList = restTemplate.getForObject(REST_SERVICE_URI+"/search/" + "[" + "Duis,Sed,Donec,Augue,Pellentesque,123" + "\\]", List.class);
 	          
 	        if(null != wordCountList && wordCountList.size() > 0)
 	        {

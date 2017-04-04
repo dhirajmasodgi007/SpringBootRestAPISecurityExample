@@ -55,7 +55,9 @@ public class CSVMessageConverter extends AbstractHttpMessageConverter<List<WordC
 	{
 	    try (final Writer wri = new OutputStreamWriter(outputMessage.getBody()))
 	    {
-	        final CSVWriter beanWriter = new CSVWriter(wri, CSVWriter.DEFAULT_SEPARATOR);
+	      //  final CSVWriter beanWriter = new CSVWriter(wri, CSVWriter.DEFAULT_SEPARATOR);
+	    	char separator = '|';
+	    	final CSVWriter beanWriter = new CSVWriter(wri, separator);
 
 	        HttpHeaders responseHeaders = new HttpHeaders();
 		    responseHeaders.add("Content-Type", "text/csv;charset=utf-8");

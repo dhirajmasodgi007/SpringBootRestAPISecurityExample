@@ -1,6 +1,5 @@
 package com.spring.security.restful.springboot.controller;
 
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.security.restful.springboot.model.WordCount;
 import com.spring.security.restful.springboot.service.SearchService;
-import com.spring.security.restful.springboot.util.CSVMessageConverter;
 import com.spring.security.restful.springboot.util.CustomErrorMessage;
 
 /*******
@@ -37,14 +35,23 @@ import com.spring.security.restful.springboot.util.CustomErrorMessage;
 
 
 @RestController
-
-@RequestMapping("/counter-api")
+@RequestMapping("counter-api")
 public class SpringBootRestApiSecurityExampleController {
 
 	private static final Logger logger = LoggerFactory.getLogger(SpringBootRestApiSecurityExampleController.class);
 	
 	@Autowired          //Helps to map the defined bean.
 	private SearchService searchService;
+	
+	
+	@RequestMapping("/")
+    public String greeting() {
+		
+        return new StringBuffer().toString();
+    }
+	
+	
+	
 	
 
 	/*
